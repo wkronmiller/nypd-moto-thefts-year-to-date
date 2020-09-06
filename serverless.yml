@@ -1,0 +1,15 @@
+service: moto-crime-stats-nypd
+frameworkVersion: '1'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  motoTheftsYearly:
+    handler: comstat.yearToDate
+    events:
+      - http:
+          path: thefts/motorcycle/year-to-date
+          method: get
+          cors: true
